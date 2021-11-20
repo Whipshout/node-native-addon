@@ -1,0 +1,22 @@
+{
+  "package": "node-native-addon",
+  "version": "0.1.0",
+  "author": "Eduardo S. <whipshout@gmail.com>",
+  "description": "Uses Node native addon",
+  "main": "index.js",
+  "devDependencies": {
+    "@napi-rs/cli": "^1.0.0",
+    "ava": "^3.15.0"
+  },
+  "napi": {
+    "name": "index"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "build": "napi build --release",
+    "build:debug": "napi build",
+    "test:rust": "cargo test",
+    "test:js": "ava",
+    "doc": "cargo rustdoc --open -- --document-private-items"
+  }
+}
