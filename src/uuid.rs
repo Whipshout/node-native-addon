@@ -1,6 +1,6 @@
 //! Generates uuids
 //!
-//! Provides an abstraction of C bindings to use this module directly from Javascript.<br>
+//! Provides an abstraction of C bindings to use this module directly from Typescript.<br>
 //! When the abstraction is used, there are these advantages:
 //! - Faster
 //! - Safer
@@ -19,7 +19,7 @@
 use sha2::{Digest, Sha256};
 use uuid::Uuid;
 
-/// Exported function to Javascript that returns a uuid
+/// Exported function to Typescript that returns a uuid
 ///
 /// The function has an optional parameter of type string.
 /// If called without a parameter, it returns a random uuid.
@@ -28,12 +28,12 @@ use uuid::Uuid;
 /// # Panics
 ///
 /// The function works without parameter and with a string type parameter.
-/// The function will panic if is called from Javascript with a non-string type parameter.
+/// The function will panic if is called from Typescript with a non-string type parameter.
 ///
-/// # Examples (Javascript code)
+/// # Examples (Typescript code)
 ///
-/// ```
-/// const { uuid } = require(./index.node)
+/// ```typescript
+/// import { uuid } from './index'
 ///
 /// // Generate a uuid from a string input
 /// const id = uuid("1cbf5655eeb58bf905f4b1958ad0b71a2855")

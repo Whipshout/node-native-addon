@@ -1,6 +1,6 @@
 //! Node native addon
 //!
-//! Provides an abstraction of C bindings to use our libraries directly from Javascript.<br>
+//! Provides an abstraction of C bindings to use our libraries directly from Typescript.<br>
 //! When the abstraction is used, there are these advantages:
 //! - Faster
 //! - Safer

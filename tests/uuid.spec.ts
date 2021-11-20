@@ -1,13 +1,13 @@
 // Rust binary import
-const { uuid } = require('../index.node')
+import { uuid } from "../index";
 
 // We have to use 'ava' to test 'napi'
 // Ava load a node environment needed for use Rust binary
-const test = require('ava')
+import test from 'ava'
 
-const { randomBytes } = require("crypto");
+import { randomBytes } from "crypto";
 
-test('should return a valid random uuid', t => {
+test('should return a valid random uuid', (t) => {
     // Input
     const id = uuid()
 
@@ -18,7 +18,7 @@ test('should return a valid random uuid', t => {
     t.regex(id, /-/)
 })
 
-test('should return a valid uuid using an input', t => {
+test('should return a valid uuid using an input', (t) => {
     // Generates random 36 alphanumeric characters string
     const data = randomBytes(18).toString('hex')
 

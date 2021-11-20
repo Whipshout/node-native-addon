@@ -3,20 +3,27 @@
   "version": "0.1.0",
   "author": "Eduardo S. <whipshout@gmail.com>",
   "description": "Uses Node native addon",
-  "main": "index.js",
+  "main": "./main.ts",
+  "types": "./index.d.ts",
   "devDependencies": {
-    "@napi-rs/cli": "^1.0.0",
+    "@napi-rs/cli": "^2.0.0-alpha.4",
     "ava": "^3.15.0"
   },
   "napi": {
     "name": "index"
   },
   "scripts": {
-    "start": "node index.js",
-    "build": "napi build --release",
+    "start": "ts-node main.ts",
+    "build": "napi build --release --js false",
     "build:debug": "napi build",
+    "build:ts": "tsc -p tsconfig.json && node -r ts-node/register/transpile-only",
     "test:rust": "cargo test",
     "test:js": "ava",
     "doc": "cargo rustdoc --open -- --document-private-items"
+  },
+  "dependencies": {
+    "@types/node": "^16.11.9",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
   }
 }

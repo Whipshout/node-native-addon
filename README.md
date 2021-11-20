@@ -1,4 +1,4 @@
-# Rust binary integration in Javascript (alpha API)
+# Rust binary integration in Typescript (alpha API)
 
 ## Contact
 - Eduardo Sánchez<br>
@@ -14,7 +14,7 @@
 - We can integrate **Rust with Node through native addons**, as we would with **C++**. <br>
 
 
-- To do this, we have to interact with **Javascript through C**. We compile a **Rust library using C interfaces and bindings**. The library is in different formats depending on the operating system.<br>
+- To do this, we have to interact with **Typescript through C**. We compile a **Rust library using C interfaces and bindings**. The library is in different formats depending on the operating system.<br>
 
 
 - To do all the hard work, we use the **crate called NAPI**, which is responsible for making the interfaces and bindings with C and exporting the functions for use in Javascript.
@@ -67,4 +67,4 @@
 - If you want to change something about Rust code, **don't forget to recompile the addon** using ```npm run build```.<br>
 
 
-- If you want to change something about Javascript code, you don't have to worry about anything, only **check if the imports of Rust functions are right**.
+- If you want to change something about Typescript code, you don't have to worry about anything, only **check if the imports of Rust functions are right**.
