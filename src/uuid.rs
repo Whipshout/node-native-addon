@@ -83,7 +83,7 @@ fn generate_uuid_with_input(s: String) -> String {
 ///
 /// The function cannot panic.
 ///
-/// # Examples (Javascript code)
+/// # Examples
 ///
 /// ```rust
 /// // Generate a random uuid
