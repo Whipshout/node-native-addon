@@ -73,4 +73,4 @@
 
 Generating **100K uuid** from an **input**
 
-![Performance](./resources/performance-uuid.png)
+![Performance](./resources/bench.PNG)
