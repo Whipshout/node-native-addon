@@ -68,3 +68,9 @@
 
 
 - If you want to change something about Typescript code, you don't have to worry about anything, only **check if the imports of Rust functions are right**.
+
+## Performance
+
+Generating **100K uuid** from an **input**
+
+![Performance](./resources/performance.png)

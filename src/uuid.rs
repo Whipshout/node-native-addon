@@ -71,8 +71,26 @@ fn generate_uuid_with_input(s: String) -> String {
     // Hash the string using Sha256
     let hash = Sha256::digest(s.as_bytes());
 
-    // Generates uuid using the hash
-    Uuid::new_v5(&Uuid::NAMESPACE_OID, hash.as_slice()).to_string()
+    // Format hash to text
+    let hash_text = format!("{:x}", hash);
+
+    // ------------ Format hash to uuid style ------------
+    // Change length to 36
+    let (first_half, _) = hash_text.split_at(36);
+    let mut uuid = first_half.to_string();
+
+    // Change some characters to dash
+    uuid.replace_range(8..9, "-");
+    uuid.replace_range(13..14, "-");
+    uuid.replace_range(18..19, "-");
+    uuid.replace_range(23..24, "-");
+
+    // Change some characters to specific numbers
+    uuid.replace_range(14..15, "4");
+    uuid.replace_range(19..20, "8");
+    // ------------ Format hash to uuid style ------------
+
+    uuid
 }
 
 /// Returns a random uuid
