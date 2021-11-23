@@ -118,6 +118,7 @@ mod tests {
     use fake::{Fake, StringFaker};
     use quickcheck::{Arbitrary, Gen};
     use quickcheck_macros::quickcheck;
+    use std::ops::Index;
 
     use super::*;
 
@@ -159,7 +160,7 @@ mod tests {
 
         // Asserts
         assert_eq!(uuid.len(), 36, "Uuid length should be 36");
-        assert!(uuid.contains('-'), "Uuid must contain '-'");
+        assert_eq!(uuid.matches('-').count(), 4, "Uuid must have 4 '-'");
         assert_eq!(
             uuid.find('-'),
             Some(8),
@@ -169,6 +170,26 @@ mod tests {
             uuid.rfind('-'),
             Some(23),
             "Uuid must have the last '-' in the position 23 of the string"
+        );
+        assert_eq!(
+            uuid.index(13..14),
+            "-",
+            "Uuid must have a '-' in the position 13"
+        );
+        assert_eq!(
+            uuid.index(18..19),
+            "-",
+            "Uuid must have a '-' in the position 18"
+        );
+        assert_eq!(
+            uuid.index(14..15),
+            "4",
+            "Uuid must have a '4' in the position 14"
+        );
+        assert_eq!(
+            uuid.index(19..20),
+            "8",
+            "Uuid must have a '8' in the position 19"
         );
     }
 
@@ -182,11 +203,13 @@ mod tests {
         let uuid = generate_uuid_with_input(random_string.clone());
         let uuid2 = generate_uuid_with_input(random_string);
 
+        // let v = uuid.matches("abc").count();
+
         // Asserts
         assert!(uuid.is_ascii());
         assert_eq!(uuid, uuid2, "Both uuids must be the same");
         assert_eq!(uuid.len(), 36, "Uuid length should be 36");
-        assert!(uuid.contains('-'), "Uuid must contain '-'");
+        assert_eq!(uuid.matches('-').count(), 4, "Uuid must have 4 '-'");
         assert_eq!(
             uuid.find('-'),
             Some(8),
@@ -196,6 +219,26 @@ mod tests {
             uuid.rfind('-'),
             Some(23),
             "Uuid must have the last '-' in the position 23 of the string"
+        );
+        assert_eq!(
+            uuid.index(13..14),
+            "-",
+            "Uuid must have a '-' in the position 13"
+        );
+        assert_eq!(
+            uuid.index(18..19),
+            "-",
+            "Uuid must have a '-' in the position 18"
+        );
+        assert_eq!(
+            uuid.index(14..15),
+            "4",
+            "Uuid must have a '4' in the position 14"
+        );
+        assert_eq!(
+            uuid.index(19..20),
+            "8",
+            "Uuid must have a '8' in the position 19"
         );
     }
 
@@ -208,7 +251,7 @@ mod tests {
         // Asserts
         assert!(uuid.is_ascii());
         assert_eq!(uuid.len(), 36, "Uuid length should be 36");
-        assert!(uuid.contains('-'), "Uuid must contain '-'");
+        assert_eq!(uuid.matches('-').count(), 4, "Uuid must have 4 '-'");
         assert_eq!(
             uuid.find('-'),
             Some(8),
@@ -218,6 +261,16 @@ mod tests {
             uuid.rfind('-'),
             Some(23),
             "Uuid must have the last '-' in the position 8 of the string"
+        );
+        assert_eq!(
+            uuid.index(13..14),
+            "-",
+            "Uuid must have a '-' in the position 13"
+        );
+        assert_eq!(
+            uuid.index(18..19),
+            "-",
+            "Uuid must have a '-' in the position 18"
         );
     }
 }
