@@ -203,8 +203,6 @@ mod tests {
         let uuid = generate_uuid_with_input(random_string.clone());
         let uuid2 = generate_uuid_with_input(random_string);
 
-        // let v = uuid.matches("abc").count();
-
         // Asserts
         assert!(uuid.is_ascii());
         assert_eq!(uuid, uuid2, "Both uuids must be the same");
